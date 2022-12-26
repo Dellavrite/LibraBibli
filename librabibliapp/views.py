@@ -33,7 +33,7 @@ class LibraryEditView(View):
     def get(self, request, id):
         book = get_object_or_404(Book, id=id)
         form = BookForm(instance=book)
-        return render(request, 'create.html', {'form': form})
+        return render(request, 'edit.html', {'form': form})
 
     def post(self, request, id):
         form = BookForm(request.POST)
@@ -54,5 +54,13 @@ class LibraryDeleteView(View):
 class OrderView(View):
 
     def get(self, request):
+        form = OrderForm
+        return render(request, 'OrderCreate.html', {'form': form})
 
+    def post(self, request):
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/")
+        return self.get(request)
 
