@@ -27,10 +27,24 @@ class LibraryAddView(View):
         return self.get(request)
 
 
-
 class LibraryEditView(View):
 
     def get(self, request, id):
         book = get_object_or_404(Book, id=id)
         form = BookForm(instance=book)
         return render(request, 'create.html', {'form': form})
+
+    def post(self, request, id):
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/")
+        return self.get(request)
+
+
+class LibraryDeleteView(View):
+
+    def post(self, request):
+        book = Book.objects.get(id=id)
+        book.delete()
+        return HttpResponseRedirect("/")
