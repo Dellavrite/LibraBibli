@@ -26,3 +26,9 @@ class Book(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Order(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    person_name = models.CharField(label="ФИО")
+    phone = models.CharField(label="Номер телефона", widget=forms.NumberInput)
