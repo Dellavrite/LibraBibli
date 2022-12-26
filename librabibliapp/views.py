@@ -2,15 +2,16 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.http import HttpResponseRedirect
 from .models import *
-from .forms import BookForm
+from .forms import BookForm, OrderForm
 
 
 class LibraryView(View):
 
     def get(self, request):
+        formOrder = OrderForm
         books = Book.objects.all()
         categories = Category.objects.all()
-        return render(request, 'index.html', {'books': books, 'categories': categories})
+        return render(request, 'index.html', {'books': books, 'categories': categories, 'formOrder': formOrder})
 
 
 class LibraryAddView(View):
@@ -48,3 +49,10 @@ class LibraryDeleteView(View):
         book = Book.objects.get(id=id)
         book.delete()
         return HttpResponseRedirect("/")
+
+
+class OrderView(View):
+
+    def get(self, request):
+
+
