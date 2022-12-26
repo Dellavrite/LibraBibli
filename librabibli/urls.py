@@ -16,10 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from LibraBibli.librabibliapp.views import LibraryDeleteView
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("librabibliapp.urls"))
-
 ]
+
+

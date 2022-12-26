@@ -5,7 +5,7 @@ from .views import LibraryAddView
 from .views import LibraryEditView
 
 
-from LibraBibli.librabibliapp.views import LibraryDeleteView
+from .views import LibraryDeleteView
 
 urlpatterns = [
     path('create/', LibraryAddView.as_view()),
