@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 
 # Create your models here.
 
@@ -30,5 +30,6 @@ class Book(models.Model):
 
 class Order(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    person_name = models.CharField(label="ФИО")
-    phone = models.CharField(label="Номер телефона", widget=forms.NumberInput)
+    person_name = models.CharField(max_length=255)
+    phone = models.CharField(max_length=255)
+
