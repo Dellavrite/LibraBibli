@@ -9,8 +9,8 @@ class OrderForm(forms.Form):
     person_name = forms.CharField(label="ФИО")
     phone = forms.CharField(label="Номер телефона", widget=forms.NumberInput)
 
-
 class BookForm(ModelForm):
     class Meta:
         model = Book
         fields = '__all__'
+
