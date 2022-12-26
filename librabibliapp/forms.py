@@ -1,7 +1,6 @@
 from django import forms
 from django.forms import ModelChoiceField, ModelForm
-
-from librabibliapp.models import Book
+from .models import Book
 
 
 class OrderForm(forms.Form):
