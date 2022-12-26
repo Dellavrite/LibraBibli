@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from librabibliapp.views import LibraryView
+from librabibliapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('create/', LibraryAddView.as_view()),
     path('edit/int<id>', LibraryEditView.as_view()),
     path
+
 ]
