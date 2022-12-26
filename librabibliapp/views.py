@@ -7,9 +7,12 @@ from .forms import BookForm, OrderForm
 
 class LibraryView(View):
 
-    def get(self, request):
+    def get(self, request, id):
         formOrder = OrderForm
-        books = Book.objects.all()
+        if id != 0:
+            books = Book.objects.filter(category_id=id)
+        else:
+            books = Book.objects.all()
         categories = Category.objects.all()
         return render(request, 'index.html', {'books': books, 'categories': categories, 'formOrder': formOrder})
 
