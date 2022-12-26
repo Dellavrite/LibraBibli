@@ -21,5 +21,6 @@ from LibraBibli.librabibliapp.views import LibraryDeleteView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("librabibliapp.urls"))
-
 ]
+
+
