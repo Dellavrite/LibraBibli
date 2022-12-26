@@ -19,5 +19,8 @@ from librabibliapp.views import LibraryView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LibraryView.as_view())
+    path('', LibraryView.as_view()),
+    path('create/', LibraryAddView.as_view()),
+    path('edit/int<id>', LibraryEditView.as_view()),
+    path
 ]
