@@ -40,6 +40,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 40px;
 }
 .menu{
     position: relative;
@@ -58,6 +59,10 @@ header{
     font-size: 24px;
     line-height: 30px;
     color: #B08EAD;
+    transition: 300ms;
+}
+.menu__link:hover{
+    color: #5584b4;
 }
 .menu__item{
     margin-right: 40px;
@@ -70,4 +75,105 @@ header{
 }
 img{
     width: 100%;
+}
+.title{
+    font-size: 48px;
+    color: #6b8ee0;
+}
+.container{
+    width: 1000px;
+    margin: 0 auto;
+}
+.books{
+    display: flex;
+    flex-direction: column;
+}
+.link{
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    border-radius: 10px;
+    background: #b5e0bc;
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 30px;
+    color: #B08EAD;
+    transition: 300ms;
+    padding: 5px 10px;
+
+}
+.link:hover{
+    background: #cdc2d7;
+}
+.overlay {
+
+   /* Скрываем подложку  */
+   opacity: 0;
+   visibility: hidden;
+
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, .5);
+   z-index: 20;
+   transition: .3s all;
+}
+
+
+/* Стили для модальных окон */
+
+.modal {
+
+   /* Скрываем окна  */
+   opacity: 0;
+   visibility: hidden;
+
+
+   /*  Установаем ширину окна  */
+   width: 100%;
+   max-width: 500px;
+
+   /*  Центрируем и задаем z-index */
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 30; /* Должен быть выше чем у подложки*/
+
+   /*  Побочные стили   */
+   box-shadow: 0 3px 10px -.5px rgba(0, 0, 0, .2);
+   text-align: center;
+   padding: 30px;
+   border-radius: 3px;
+   background-color: #fff;
+   transition: 0.3s all;
+}
+
+
+/* Стили для активных классов подложки и окна */
+
+.modal.active,
+.overlay.active{
+   opacity: 1;
+   visibility: visible;
+}
+
+
+/* Стили для кнопки закрытия */
+
+.modal__cross {
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   fill: #444;
+   cursor: pointer;
+}
+#clock{
+    color: #d77272;
+ font-weight: bold;
+  font-size: 20px;
 }
